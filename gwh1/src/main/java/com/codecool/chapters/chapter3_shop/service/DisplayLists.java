@@ -4,11 +4,15 @@ import com.codecool.chapters.chapter3_shop.Weapon;
 import com.codecool.data.GameCharacter;
 import com.codecool.service.Calculator;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
 public class DisplayLists {
-    public static void displayShopCatalogue(Weapon[] weapon) {
+    private static final int DEFAULT_INTENT_INVENTORY = 35;
+
+    public static void displayShopCatalogue(@NotNull Weapon[] weapon) {
 
         int counter = 1;
+        //TODO: use constants
         int repeatValue = Calculator.calculateCenterValue(60); // Characters: number of characters in the longest line
         int width = Calculator.returnCurrentConsoleWidth();
 
@@ -29,7 +33,7 @@ public class DisplayLists {
 
     public static void displayPlayerInventory(GameCharacter player) {
 
-        int repeatValue = Calculator.calculateCenterValue(35);
+        int repeatValue = Calculator.calculateCenterValue(DEFAULT_INTENT_INVENTORY);
         int width = Calculator.returnCurrentConsoleWidth();
 
         System.out.printf(" ".repeat(repeatValue) + "-----------------------------------%n");

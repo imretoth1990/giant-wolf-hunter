@@ -34,7 +34,7 @@ public class Surrender {
         int consoleWidth = Integer.parseInt(dotenv.get("CONSOLE_WIDTH"));
 
         GameCharacter john = new GameCharacter("John", 50, 10, 100);
-        GameCharacter player = Singleton.instance.gameCharacter;
+        GameCharacter player = Singleton.getInstance().getGameCharacter();
         player.setHP(50);
         player.setCoins(150);
         player.setAttack(5);

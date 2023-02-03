@@ -9,7 +9,7 @@ public class GameCharacter {
     String name;
     int hp;
     int attack;
-    int coins;
+    double coins;
     List<Weapon> weaponList;
 
     public GameCharacter(String name, int hp, int attack, int coins) {
@@ -55,7 +55,7 @@ public class GameCharacter {
     public void decreaseAttack(int attack) {
         this.attack -= attack;
     }
-    public int getCoins() {
+    public double getCoins() {
         return coins;
     }
 
@@ -63,7 +63,7 @@ public class GameCharacter {
         this.coins += coins;
     }
 
-    public void decreaseCoins(int coins) {
+    public void decreaseCoins(double coins) {
         this.coins -= coins;
     }
 

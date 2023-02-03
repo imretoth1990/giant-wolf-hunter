@@ -3,15 +3,23 @@ package com.codecool.service;
 import com.codecool.data.GameCharacter;
 
 public class Singleton {
-    public static volatile Singleton instance;
-    public GameCharacter gameCharacter;
+    private static Singleton instance;
+    private GameCharacter gameCharacter;
 
-    public Singleton(GameCharacter gameCharacter) {
+    /*private Singleton(GameCharacter gameCharacter) {
         this.gameCharacter = gameCharacter;
+    }*/
+
+    public GameCharacter getGameCharacter() {
+        return instance.getGameCharacter();
     }
 
-    public static Singleton getInstance(GameCharacter gameCharacter) {
-        Singleton result = instance;
+    public void setGameCharacter(GameCharacter gameCharacter) {
+        instance.gameCharacter = gameCharacter;
+    }
+
+    public static Singleton getInstance() {
+        /*Singleton result = instance;
 
         if(result == null) {
             synchronized (Singleton.class) {
@@ -22,6 +30,11 @@ public class Singleton {
                 }
             }
         }
-        return result;
+        return result;*/
+        if(instance == null)
+        {
+            instance = new Singleton();
+        }
+        return instance;
     }
 }

@@ -7,6 +7,7 @@ public class Chapters {
     public static void runChapters(GameCharacter support, GameCharacter main) {
         // Chapter 1
         Chapter1 chapter1 = new Chapter1(support, main);
-        chapter1.runChapter1();
+        //chapter1.runChapter1();
+        chapter1.runChapter();
     }
 }

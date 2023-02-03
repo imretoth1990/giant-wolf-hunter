@@ -35,7 +35,7 @@ public class Shop {
 
             if (gameCharacter.getCoins() >= weaponCatalogue.get(inputNumber).price()) {
                 gameCharacter.increaseAttack(weaponCatalogue.get(inputNumber).attackPoint());
-                gameCharacter.decreaseCoins((int) weaponCatalogue.get(inputNumber).price());
+                gameCharacter.decreaseCoins(weaponCatalogue.get(inputNumber).price());
                 gameCharacter.getWeaponList().add(weaponCatalogue.get(inputNumber));
                 Printer.printPage("You bought a " + weaponCatalogue.get(inputNumber).name() + " successfully!");
             }
@@ -112,7 +112,7 @@ public class Shop {
         int catalogueNumber = 1;
 
         for (Weapon weapon : weapons) {
-            weaponCatalogue.put(Integer.valueOf(catalogueNumber), weapon);
+            weaponCatalogue.put(catalogueNumber, weapon);
             catalogueNumber++;
         }
     }
@@ -127,13 +127,7 @@ public class Shop {
     }
 
     private void listWeaponOptions() {
-        Weapon[] STANDARD_WEAPONS = {
-                new Weapon("sword", 300, 30),
-                new Weapon("bow", 200, 15),
-                new Weapon("dagger", 150, 10)
-        };
-
-        DisplayLists.displayShopCatalogue(weapons.toArray(new Weapon[0]));
+        DisplayLists.displayShopCatalogue((Weapon[]) weapons.toArray());
     }
 
 
@@ -177,7 +171,7 @@ public class Shop {
         }
 
         if (input.equals("pay more")) {
-            increasePricesByPercentage(30);
+            increasePricesByPercentage(30); // TODO: Constant or even better random number
             Printer.printSimpleText("The shopkeeper increased the prices");
         } else {
             surrender.goHome();

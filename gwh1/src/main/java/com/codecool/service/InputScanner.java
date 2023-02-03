@@ -21,7 +21,7 @@ public class InputScanner{
         }
 
         if(input.equalsIgnoreCase("inventory")) {
-            DisplayLists.displayPlayerInventory(Singleton.instance.gameCharacter);
+            DisplayLists.displayPlayerInventory(Singleton.getInstance().getGameCharacter());
             return " ";
         } else {
             return input;

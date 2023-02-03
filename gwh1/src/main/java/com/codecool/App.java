@@ -27,7 +27,8 @@ public class App {
         GameCharacter player = new GameCharacter("Player", 50, 5, 150);
         GameCharacter john = new GameCharacter("John", 50, 10, 100);
 
-        Singleton.getInstance(player);
+        Singleton single = Singleton.getInstance();
+        single.setGameCharacter(player);
 
         AppUI ui = new AppUI(john, player, consoleWidth);
         ui.runApp();
